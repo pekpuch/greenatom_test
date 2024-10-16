@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Classifier</title>
+</head>
+<body>
+    <h1>Text Classifier</h1>
+    <form method="POST">
+        {% csrf_token %}  <!-- Защита от CSRF-атак -->
+        <textarea name="text" rows="5" cols="50" placeholder="Enter your text here"></textarea><br>
+        <input type="submit" value="Classify">
+    </form>
+
+    <!-- Если есть результат, выводим его -->
+    {% if result is not None %}
+    <h2>Classification Result: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>
